@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
         <span className="font-medium text-white tracking-wide">PhD Applicant for Fall 2026/2027</span>
         <span className="hidden sm:inline text-neutral-600">•</span>
-        <span className="hidden sm:inline text-neutral-400">Generative Temporal AI &bull; Robust Deep Learning &bull; Autonomous Systems</span>
+        <span className="hidden sm:inline text-neutral-400">Generative Temporal AI &bull; Robust Deep Learning &bull; Electrical Systems</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
                 ALIREZA <span className="font-semibold text-indigo-400">JAHANI</span>
               </div>
               <div className="text-[11px] text-neutral-400 tracking-wider uppercase mt-1 font-mono">
-                ARAS AI Lab &bull; Mechatronics M.Sc.
+                ARAS AI Lab &bull; Electrical Engineering M.Sc.
               </div>
             </div>
           </a>

@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
                 ALIREZA <span className="font-semibold text-indigo-400">JAHANI</span>
               </h1>
               <p className="text-neutral-400 text-xs sm:text-sm tracking-widest uppercase mt-2 font-medium">
-                Applied Scientist &bull; Machine Learning &bull; Temporal AI &bull; Robotics
+                Applied Scientist &bull; Machine Learning &bull; Temporal AI &bull; Electrical Engineering
               </p>
               <div className="text-xs text-neutral-400 flex flex-wrap items-center gap-2 mt-2">
                 <span>

@@ -15,7 +15,7 @@ export interface MetricComparison {
 export interface IndustryApplication {
   id: string;
   title: string;
-  domain: 'Retail & E-Commerce' | 'Intelligent Transportation' | 'Environmental & IoT' | 'Quantitative Finance' | 'Industrial Robotics & Mechatronics' | 'Public Health';
+  domain: 'Retail & E-Commerce' | 'Intelligent Transportation' | 'Environmental Systems' | 'Quantitative Finance' | 'Industrial & Electrical Systems' | 'Public Health';
   summary: string;
   impactHighlight: string;
   datasetUsed: string;
@@ -82,12 +82,8 @@ export interface ReferenceContact {
   institutionUrl?: string;
   country: string;
   relation: string;
-  email: string;
-  phone: string;
   profileUrl?: string;
   hasRecLetter?: boolean;
-  recLetterSummary?: string;
-  recommendationLetterPdf?: string;
 }
 
 export interface TeachingExperience {

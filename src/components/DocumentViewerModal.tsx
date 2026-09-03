@@ -86,39 +86,6 @@ export const VERIFIED_DOCUMENTS: DocumentItem[] = [
         'Index': 'IEEE Xplore Digital Library',
       }
     }
-  },
-  {
-    id: 'fontys-rec-letter',
-    type: 'rec_letter',
-    title: 'Letter of Recommendation — Dr. Esmaeil Najafi',
-    subtitle: 'Fontys University of Applied Sciences, Eindhoven, The Netherlands',
-    issuer: 'Fontys University of Applied Sciences & Mechatronics and Precision Engineering Group',
-    recipient: 'Alireza Jahani',
-    date: 'Academic Year 2025/2026',
-    verificationBadge: 'Official Academic Reference',
-    fullContent: {
-      header: 'LETTER OF RECOMMENDATION FOR GRADUATE ADMISSION',
-      organization: 'Fontys University of Applied Sciences — Eindhoven, The Netherlands',
-      body: [
-        'To: Graduate Admissions Committee',
-        'It is my distinct pleasure to write this letter of recommendation for Mr. Alireza Jahani in support of his application for the Ph.D. program in Machine Learning, Deep Learning, and Artificial Intelligence.',
-        'I have known Alireza for several years in my capacity as an Associate Professor and Research Leader of the Mechatronics and Precision Engineering group at Fontys University of Applied Sciences, and as his B.Sc. thesis supervisor and ongoing research collaborator. During this period, we collaborated closely on advanced predictive modeling, sequential deep learning, and robust neural architectures, culminating in co-authored peer-reviewed research including our 2026 Q1 journal paper "EP-RNN: Error-Projected Recurrent Neural Network for Time Series Forecasting" published in Results in Engineering (Impact Factor: 9.4).',
-        'Throughout his research projects, Alireza has consistently impressed me with his mathematical maturity, deep intellectual curiosity, and remarkable ability to formulate original neural network mechanisms. He does not simply apply existing machine learning tools; he investigates the mathematical core of why models fail under noise, outliers, and sparsity, and devises novel architectural solutions.',
-        'Beyond his theoretical acumen, Alireza is a dedicated researcher who combines rigorous experimental design with exceptional software engineering skills. He has demonstrated high productivity, self-motivation, and scientific integrity, maintaining a top rank (1st out of 30) in his M.Sc. program.',
-        'I am fully confident that Alireza has the intellectual capability, research drive, and resilience to excel in a top-tier doctoral program. He has my highest and most enthusiastic recommendation without reservation.'
-      ],
-      signatory: {
-        name: 'Dr. Esmaeil Najafi, Ph.D.',
-        title: 'Associate Professor & Research Leader of "Mechatronics and Precision Engineering"',
-        affiliation: 'Fontys University of Applied Sciences, Eindhoven, The Netherlands',
-        contact: 'Email: e.najafi@fontys.nl | Tel: +31-642985979',
-      },
-      metadata: {
-        'Referee Relation': 'B.Sc. Supervisor & Research Advisor (Co-Author on EP-RNN)',
-        'Institution': 'Fontys University of Applied Sciences, Netherlands',
-        'Academic Ranking': 'Top Tier Recommendation',
-      }
-    }
   }
 ];
 

@@ -3,7 +3,7 @@ import { CommunityEventPhoto } from '../types';
 export const PERSONAL_PHOTO = {
   src: '/images/personal-picture.jpg',
   alt: 'Alireza Jahani - Applied Scientist & PhD Applicant',
-  caption: 'Alireza Jahani, M.Sc. Mechatronics, ARAS AI Lab',
+  caption: 'Alireza Jahani, M.Sc. Electrical Engineering, ARAS AI Lab',
   secondarySrc: '/images/Personal picture.jpg',
 };
 
@@ -32,14 +32,14 @@ export const ARAS_COMMUNITY_PHOTOS: CommunityEventPhoto[] = [
     category: 'Faculty Retreat',
     date: 'Annual Lab Expedition',
     location: 'Alborz Highlands / Forest Park Lodge',
-    affiliation: 'Advanced Robotics and Automated Systems (ARAS)',
+    affiliation: 'ARAS AI Lab, Faculty of Electrical Engineering',
     description: 'Group photo of the ARAS research family led by Prof. Hamid D. Taghirad, bringing together M.Sc. and Ph.D. scholars, postdocs, and alumni in a collaborative outdoor gathering.',
     imageSrc: '/images/aras-retreat.png',
     fallbackKeywords: 'group photo, mountain retreat, faculty, students, forest cabin',
     aspectRatio: '4:3',
     details: [
       'Over 25 researchers and graduate fellows celebrating annual milestones',
-      'Fostering interdisciplinary collaboration across mechatronics, AI, and control',
+      'Fostering interdisciplinary collaboration across electrical engineering, AI, and control',
       'Mentorship discussions with Prof. Hamid D. Taghirad',
     ],
     keyPeople: ['Prof. Hamid D. Taghirad', 'Alireza Jahani', 'ARAS Research Team'],
@@ -58,9 +58,9 @@ export const ARAS_COMMUNITY_PHOTOS: CommunityEventPhoto[] = [
     details: [
       'Annual team-building expedition with lab colleagues and research peers',
       'Traditional carved "A R A S" lettering in the shoreline sands',
-      'Strengthening bonds between machine learning, control, and robotics cohorts',
+      'Strengthening bonds between machine learning, control, and signal processing cohorts',
     ],
-    keyPeople: ['ARAS AI & Robotics Graduate Cohort'],
+    keyPeople: ['ARAS AI & Control Graduate Cohort'],
   },
   {
     id: 'aras-travel',
@@ -69,7 +69,7 @@ export const ARAS_COMMUNITY_PHOTOS: CommunityEventPhoto[] = [
     date: 'Conference & Delegation Send-off',
     location: 'Airport Departure Gate',
     affiliation: 'ARAS Delegation',
-    description: 'Airport departure gate gathering with boarding passes and travel gear, departing for scientific conferences and international robotics symposia.',
+    description: 'Airport departure gate gathering with boarding passes and travel gear, departing for scientific conferences and international symposia.',
     imageSrc: '/images/aras-travel.png',
     fallbackKeywords: 'airport, boarding pass, selfie, colleagues, conference travel',
     aspectRatio: '4:3',

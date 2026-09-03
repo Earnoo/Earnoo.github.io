@@ -46,7 +46,7 @@ RESEARCH INTERESTS:
 Generative models, Time series forecasting, Predictive Maintenance, Robust learning, Anomaly Detection, Explainable AI (XAI)
 
 EDUCATION:
-- M.Sc. in Mechatronics Engineering, K. N. Toosi University of Technology (Sep 2023 – Sep 2026)
+- M.Sc. in Electrical Engineering, K. N. Toosi University of Technology (Sep 2023 – Sep 2026)
   GPA: 4.0/4.0 (18.6/20), Ranked 1st out of 30. Supervisor: Prof. Hamid D. Taghirad (http://aras.kntu.ac.ir/taghirad/)
 - B.Sc. in Mechanical Engineering, K. N. Toosi University of Technology (Sep 2019 – Jul 2023)
   GPA: 3.38/4.0 (16.59/20), Ranked 12th out of 118.
@@ -60,19 +60,19 @@ PUBLICATIONS:
 [1] D. A. Nejad, A. Mehrabi, A. Rezaei, A. Jahani, S. A. Khalilpour, H. K. Seyedi, and H. D. Taghirad, "Bridging Complexity and Interpretability: A Two-Phase Clustering Framework," In 2024 12th IEEE International Conference on Robotics and Mechatronics (ICRoM), Oral. https://doi.org/10.1109/ICRoM64545.2024.10903635
 
 RESEARCH & INDUSTRIAL EXPERIENCE:
-Research Assistant at Applied Robotics and AI Solutions (ARAS): https://aras.kntu.ac.ir/
+Research Assistant at ARAS AI Lab: https://aras.kntu.ac.ir/
 Deployed a live forecasting application (https://pakhsh.fanoos-ai.ir) in production for major retail and food service chains, including Cluna (https://cluna.app/), Burgerland (https://burgerland.ir/), and Hyperme (https://www.hyperme.ir/).
 
 TEACHING & MENTORSHIP:
-- Mentor for Undergraduate ML Projects (Fall 2024 – Fall 2025), ARAS Lab
-- Robotics and Computer Vision (2026), Instructor: Prof. Hamid D. Taghirad (http://aras.kntu.ac.ir/taghirad/)
+- Mentor for Undergraduate ML Projects (Fall 2024 – Fall 2025), ARAS AI Lab
+- Computer Vision and Deep Learning (2026), Instructor: Prof. Hamid D. Taghirad (http://aras.kntu.ac.ir/taghirad/)
 - Machine Learning (Fall 2025), Instructor: Dr. Mahdi Aliyari-Shoorehdeli (https://scholar.google.com/citations?hl=en&user=4tTSHmQAAAAJ)
 - Neural Network Foundations (Fall 2025), Instructor: Dr. Amirhossein Nikoofard (https://scholar.google.com/citations?hl=en&user=vk4WVkQAAAAJ)
 
 REFERENCES:
-- Prof. Hamid D. Taghirad (M.Sc. Supervisor), taghirad@kntu.ac.ir, Tel: +98-21-8888-3001
-- Dr. Esmaeil Najafi (B.Sc. Supervisor & Advisor), e.najafi@fontys.nl, Tel: +31-642985979
-- Dr. Amirhossein Nikoofard (Research Advisor), a.nikoofard@kntu.ac.ir, Tel: +98-21-8406-2209
+- Prof. Hamid D. Taghirad (M.Sc. Supervisor): http://aras.kntu.ac.ir/taghirad/
+- Dr. Esmaeil Najafi (B.Sc. Supervisor & Advisor): https://scholar.google.com/citations?user=z14ukLwAAAAJ&hl=en
+- Dr. Amirhossein Nikoofard (Research Advisor): https://scholar.google.com/citations?hl=en&user=vk4WVkQAAAAJ
     `.trim();
 
     navigator.clipboard.writeText(text);
@@ -227,7 +227,7 @@ REFERENCES:
                     </a>
                   </div>
                   <div className="text-neutral-200 mt-0.5">
-                    <strong>M.Sc. in Mechatronics Engineering</strong> &mdash; Department of Electrical and Computer Engineering
+                    <strong>M.Sc. in Electrical Engineering</strong> &mdash; Department of Electrical and Computer Engineering
                   </div>
                   <div className="text-neutral-300 mt-1">
                     &bull; <strong>Thesis:</strong> <em>Design and Development of Sales Forecasting System in the Retail Industry Using Machine Learning Methods</em>
@@ -465,7 +465,7 @@ REFERENCES:
                       rel="noopener noreferrer"
                       className="text-indigo-400 hover:underline font-semibold inline-flex items-center gap-1"
                     >
-                      Research Assistant at Applied Robotics and AI Solutions (ARAS)
+                      Research Assistant at ARAS AI Lab
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
@@ -544,7 +544,7 @@ REFERENCES:
                       rel="noopener noreferrer"
                       className="text-indigo-400 hover:underline"
                     >
-                      Applied Robotics and AI Solutions (ARAS) Lab
+                      ARAS AI Lab
                     </a>
                   </div>
                 </div>
@@ -553,7 +553,7 @@ REFERENCES:
 
               <div className="p-3 rounded-lg bg-neutral-900/60 border border-neutral-800 flex flex-col sm:flex-row justify-between sm:items-center gap-1">
                 <div>
-                  <div className="font-medium text-white">Robotics and Computer Vision</div>
+                  <div className="font-medium text-white">Computer Vision and Deep Learning</div>
                   <div className="text-neutral-400 text-[11px]">
                     Instructor:{' '}
                     <a
@@ -651,12 +651,19 @@ REFERENCES:
                   <div className="text-indigo-400 text-[11px] font-medium mt-0.5">M.Sc. Supervisor</div>
                   <div className="text-neutral-400 text-[11px] mt-1">
                     Professor, Department of Electrical and Computer Engineering, K. N. Toosi University of Technology<br />
-                    Director, Applied Robotics and AI Solutions (ARAS)
+                    Director, ARAS AI Lab
                   </div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-neutral-800 font-mono text-[11px] text-neutral-400 space-y-0.5">
-                  <div>Tel: +98-21-8888-3001</div>
-                  <div>Email: taghirad@kntu.ac.ir</div>
+                <div className="mt-3 pt-2 border-t border-neutral-800 text-[11px]">
+                  <a
+                    href="http://aras.kntu.ac.ir/taghirad/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-400 hover:underline inline-flex items-center gap-1 font-mono text-[10px]"
+                  >
+                    aras.kntu.ac.ir/taghirad
+                    <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
                 </div>
               </div>
 
@@ -674,21 +681,19 @@ REFERENCES:
                   </a>
                   <div className="text-indigo-400 text-[11px] font-medium mt-0.5">B.Sc. Supervisor & Advisor</div>
                   <div className="text-neutral-400 text-[11px] mt-1">
-                    Associate Professor, Research Leader of "Mechatronics and Precision Engineering", Fontys University of Applied Sciences, The Netherlands
+                    Associate Professor, Research Leader in Electrical and Precision Engineering, Fontys University of Applied Sciences, The Netherlands
                   </div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-neutral-800 font-mono text-[11px] text-neutral-400 space-y-0.5">
-                  <div>Tel: +31-642985979</div>
-                  <div>Email: e.najafi@fontys.nl</div>
-                  {onOpenDocument && (
-                    <button
-                      onClick={() => onOpenDocument('fontys-rec-letter')}
-                      className="mt-1.5 inline-flex items-center gap-1 text-[10px] text-indigo-400 hover:text-indigo-300 hover:underline font-sans"
-                    >
-                      <FileText className="w-3 h-3" />
-                      <span>[View Recommendation Letter PDF]</span>
-                    </button>
-                  )}
+                <div className="mt-3 pt-2 border-t border-neutral-800 text-[11px]">
+                  <a
+                    href="https://scholar.google.com/citations?user=z14ukLwAAAAJ&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-400 hover:underline inline-flex items-center gap-1 font-mono text-[10px]"
+                  >
+                    Academic Profile / Scholar
+                    <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
                 </div>
               </div>
 
@@ -710,9 +715,16 @@ REFERENCES:
                     Head, Process Control Lab (APAC)
                   </div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-neutral-800 font-mono text-[11px] text-neutral-400 space-y-0.5">
-                  <div>Tel: +98-21-8406-2209</div>
-                  <div>Email: a.nikoofard@kntu.ac.ir</div>
+                <div className="mt-3 pt-2 border-t border-neutral-800 text-[11px]">
+                  <a
+                    href="https://scholar.google.com/citations?hl=en&user=vk4WVkQAAAAJ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-400 hover:underline inline-flex items-center gap-1 font-mono text-[10px]"
+                  >
+                    Academic Profile / Scholar
+                    <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
                 </div>
               </div>
 

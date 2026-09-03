@@ -273,7 +273,7 @@ export const ArasCommunitySection: React.FC<ArasCommunitySectionProps> = () => {
             <div>
               <div className="text-xs font-semibold text-white">ARAS Lab Culture & Collaboration</div>
               <div className="text-xs text-neutral-400 mt-0.5 max-w-2xl leading-relaxed">
-                Led by Prof. Hamid D. Taghirad, the ARAS AI Lab champions open academic discourse, hands-on robotic prototyping, and joint student expeditions to foster high-impact scientific research.
+                Led by Prof. Hamid D. Taghirad, the ARAS AI Lab champions open academic discourse, advanced machine learning prototyping, and joint student expeditions to foster high-impact scientific research.
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ export const IndustryDeployments: React.FC = () => {
     }))
   );
 
-  const domains = ['all', 'Retail & E-Commerce', 'Intelligent Transportation', 'Quantitative Finance', 'Environmental & IoT', 'Industrial Robotics & Mechatronics'];
+  const domains = ['all', 'Retail & E-Commerce', 'Intelligent Transportation', 'Quantitative Finance', 'Environmental Systems', 'Industrial & Electrical Systems'];
 
   const filteredApps = selectedDomain === 'all'
     ? allIndustryApps
@@ -46,7 +46,7 @@ export const IndustryDeployments: React.FC = () => {
             From Fundamental Machine Learning to Production Scale
           </h2>
           <p className="mt-2 text-sm sm:text-base text-neutral-400 leading-relaxed">
-            Theoretical contributions proven in live commercial environments, automating supply chain replenishments, managing intermittent inventories, and safeguarding autonomous hardware.
+            Theoretical contributions proven in live commercial environments, automating supply chain replenishments, managing intermittent inventories, and safeguarding industrial electrical hardware.
           </p>
         </div>
 
