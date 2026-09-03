@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({ command }) => {
   return {
     plugins: [react(), tailwindcss()],
-    base: '/Earnoo.github.io/', // Replace with your exact repo name, e.g. '/portfolio/'
+    base: command === 'build' ? './' : '/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
