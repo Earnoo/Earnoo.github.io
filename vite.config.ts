@@ -6,6 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    base: '/Earnoo.github.io/', // Replace with your exact repo name, e.g. '/portfolio/'
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
