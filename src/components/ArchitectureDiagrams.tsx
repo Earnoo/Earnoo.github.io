@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
 import { Cpu, Eye, CheckCircle2, ArrowRight, Layers, Sparkles, Sliders } from 'lucide-react';
 
 interface DiagramProps {

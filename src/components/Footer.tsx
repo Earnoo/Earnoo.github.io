@@ -15,7 +15,15 @@ export const Footer: React.FC = () => {
   const [showDeployGuide, setShowDeployGuide] = useState(false);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch {
+      try {
+        window.scrollTo(0, 0);
+      } catch {
+        // ignore in restricted iframe
+      }
+    }
   };
 
   return (

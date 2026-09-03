@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Award, FileText, CheckCircle2, Download, ExternalLink, Building, Calendar, UserCheck } from 'lucide-react';
 
 export interface DocumentItem {
@@ -128,9 +128,9 @@ interface DocumentViewerModalProps {
 }
 
 export const DocumentViewerModal: React.FC<DocumentViewerModalProps> = ({ documentId, onClose }) => {
-  const [currentId, setCurrentId] = React.useState<string | null>(documentId);
+  const [currentId, setCurrentId] = useState<string | null>(documentId);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentId(documentId);
   }, [documentId]);
 

@@ -19,20 +19,39 @@ export default function App() {
   const [selectedDocumentId, setSelectedDocumentId] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>('about');
 
+  // Safe scroll helper to prevent errors across different browser engines / iframes
+  const safeScrollTo = (top: number, behavior: ScrollBehavior = 'smooth') => {
+    try {
+      if (typeof window !== 'undefined' && window.scrollTo) {
+        window.scrollTo({ top, behavior });
+      }
+    } catch {
+      try {
+        window.scrollTo(0, top);
+      } catch {
+        // Ignore scroll errors in restricted iframes
+      }
+    }
+  };
+
   // Handle URL hash changes for deep linking (e.g. #paper/fts-gan or #paper/ep-rnn)
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash.startsWith('#paper/')) {
-        const slug = hash.replace('#paper/', '').trim();
-        const found = PAPERS.find((p) => p.slug === slug || p.id === slug);
-        if (found) {
-          setSelectedPaper(found);
-          window.scrollTo({ top: 0, behavior: 'instant' });
-          return;
+      try {
+        const hash = typeof window !== 'undefined' ? window.location.hash : '';
+        if (hash.startsWith('#paper/')) {
+          const slug = hash.replace('#paper/', '').trim();
+          const found = PAPERS.find((p) => p.slug === slug || p.id === slug);
+          if (found) {
+            setSelectedPaper(found);
+            safeScrollTo(0, 'auto');
+            return;
+          }
+        } else if (!hash.startsWith('#paper')) {
+          setSelectedPaper(null);
         }
-      } else if (!hash.startsWith('#paper')) {
-        setSelectedPaper(null);
+      } catch (err) {
+        console.error('Error handling hashchange:', err);
       }
     };
 
@@ -44,20 +63,37 @@ export default function App() {
   }, []);
 
   const handleSelectPaper = (paper: Paper) => {
-    setSelectedPaper(paper);
-    window.location.hash = `paper/${paper.slug}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      setSelectedPaper(paper);
+      if (typeof window !== 'undefined') {
+        window.location.hash = `paper/${paper.slug}`;
+      }
+      safeScrollTo(0, 'smooth');
+    } catch (err) {
+      console.error('Error selecting paper:', err);
+    }
   };
 
   const handleBackToPortfolio = () => {
-    setSelectedPaper(null);
-    window.location.hash = 'publications';
+    try {
+      setSelectedPaper(null);
+      if (typeof window !== 'undefined') {
+        window.location.hash = 'publications';
+      }
+      safeScrollTo(0, 'smooth');
+    } catch (err) {
+      console.error('Error navigating back:', err);
+    }
   };
 
   const scrollToPublications = () => {
-    const element = document.getElementById('publications');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    try {
+      const element = document.getElementById('publications');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } catch {
+      safeScrollTo(600, 'smooth');
     }
   };
 
