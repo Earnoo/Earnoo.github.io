@@ -214,7 +214,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
                     {!imageError ? (
                       <img
                         src={profileImage}
-                        alt="Alireza Jahani"
+                        alt="Alireza Jahani - Applied Scientist & Machine Learning Researcher at ARAS AI Lab"
                         referrerPolicy="no-referrer"
                         onError={() => setImageError(true)}
                         className="w-full h-full object-cover"
@@ -313,7 +313,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
             <div className="relative aspect-square bg-neutral-950 flex items-center justify-center overflow-hidden">
               <img
                 src={profileImage}
-                alt="Alireza Jahani"
+                alt="Alireza Jahani - Applied Scientist & Machine Learning Researcher at ARAS AI Lab"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
               />

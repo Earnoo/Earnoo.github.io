@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://earnoo.github.io/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://earnoo.github.io/images/personal-picture.jpg</image:loc>
+      <image:title>Alireza Jahani - Applied Scientist &amp; Machine Learning Researcher</image:title>
+      <image:caption>Alireza Jahani, M.Sc. Mechatronics, ARAS AI Lab</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://earnoo.github.io/images/aras-presentation.png</image:loc>
+      <image:title>Alireza Jahani Seminar Presentation at ARAS AI Lab</image:title>
+      <image:caption>Technical presentation on sequential data preprocessing and fuzzy clustering</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://earnoo.github.io/images/aras-retreat.png</image:loc>
+      <image:title>ARAS Research Group Retreat with Prof. Hamid D. Taghirad</image:title>
+      <image:caption>Alireza Jahani with research fellows and faculty at ARAS Lab</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://earnoo.github.io/images/aras-beach.png</image:loc>
+      <image:title>ARAS Lab Field Gathering</image:title>
+      <image:caption>Caspian Shoreline expedition and ARAS emblem sand carving</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://earnoo.github.io/images/aras-travel.png</image:loc>
+      <image:title>ARAS Conference Travel Delegation</image:title>
+      <image:caption>Academic travel and scientific conference send-off</image:caption>
+    </image:image>
+  </url>
+</urlset>

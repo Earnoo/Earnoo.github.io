@@ -1,6 +1,6 @@
 {
-  "name": "Alireza Jahani - Academic Portfolio & PhD Applications",
-  "description": "Personal academic website and research portfolio of Alireza Jahani, Applied Scientist at ARAS Lab specializing in time-series forecasting, generative AI, and robust learning.",
+  "name": "Alireza Jahani | Machine Learning Researcher & Applied Scientist",
+  "description": "Official academic website of Alireza Jahani, Applied Scientist and Machine Learning Researcher at ARAS AI Lab (K. N. Toosi University of Technology). Specializing in time-series forecasting, generative temporal AI (FTS-GAN), and robust deep learning.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

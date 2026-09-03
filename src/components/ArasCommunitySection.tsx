@@ -141,7 +141,7 @@ export const ArasCommunitySection: React.FC<ArasCommunitySectionProps> = () => {
                 >
                   <img
                     src={currentImg}
-                    alt={photo.title}
+                    alt={`Alireza Jahani - ARAS AI Lab: ${photo.title}`}
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       // Fallback gracefully if direct file not yet placed
@@ -322,7 +322,7 @@ export const ArasCommunitySection: React.FC<ArasCommunitySectionProps> = () => {
             <div className="relative bg-black flex items-center justify-center overflow-hidden min-h-[320px] max-h-[58vh]">
               <img
                 src={userCustomImages[activeModalPhoto.id] || activeModalPhoto.imageSrc}
-                alt={activeModalPhoto.title}
+                alt={`Alireza Jahani - ARAS AI Lab: ${activeModalPhoto.title}`}
                 referrerPolicy="no-referrer"
                 className="max-h-[58vh] w-auto max-w-full object-contain"
                 onError={(e) => {

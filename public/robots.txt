@@ -1,0 +1,6 @@
+# robots.txt for Alireza Jahani's Academic Website
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap
+Sitemap: https://earnoo.github.io/sitemap.xml
