@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { PAPERS } from './data/papersData';
 import { Paper } from './types';
 import { Navbar } from './components/Navbar';
@@ -8,10 +8,18 @@ import { PublicationsList } from './components/PublicationsList';
 import { IndustryDeployments } from './components/IndustryDeployments';
 import { AcademicTrajectory } from './components/AcademicTrajectory';
 import { ReferencesSection } from './components/ReferencesSection';
-import { PaperDedicatedSite } from './components/PaperDedicatedSite';
-import { CvModal } from './components/CvModal';
-import { DocumentViewerModal } from './components/DocumentViewerModal';
 import { Footer } from './components/Footer';
+
+// Code-split heavy modals and standalone views for ultra-fast initial page load
+const PaperDedicatedSite = lazy(() =>
+  import('./components/PaperDedicatedSite').then((m) => ({ default: m.PaperDedicatedSite }))
+);
+const CvModal = lazy(() =>
+  import('./components/CvModal').then((m) => ({ default: m.CvModal }))
+);
+const DocumentViewerModal = lazy(() =>
+  import('./components/DocumentViewerModal').then((m) => ({ default: m.DocumentViewerModal }))
+);
 
 export default function App() {
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
@@ -101,20 +109,38 @@ export default function App() {
   if (selectedPaper) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] text-neutral-100">
-        <PaperDedicatedSite
-          paper={selectedPaper}
-          onBack={handleBackToPortfolio}
-          isStandaloneWindow={false}
-        />
-        <CvModal
-          isOpen={cvModalOpen}
-          onClose={() => setCvModalOpen(false)}
-          onOpenDocument={(docId) => setSelectedDocumentId(docId)}
-        />
-        <DocumentViewerModal
-          documentId={selectedDocumentId}
-          onClose={() => setSelectedDocumentId(null)}
-        />
+        <Suspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a] text-neutral-400">
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                <span className="text-sm font-mono">Loading Research Paper...</span>
+              </div>
+            </div>
+          }
+        >
+          <PaperDedicatedSite
+            paper={selectedPaper}
+            onBack={handleBackToPortfolio}
+            isStandaloneWindow={false}
+          />
+        </Suspense>
+
+        <Suspense fallback={null}>
+          {cvModalOpen && (
+            <CvModal
+              isOpen={cvModalOpen}
+              onClose={() => setCvModalOpen(false)}
+              onOpenDocument={(docId) => setSelectedDocumentId(docId)}
+            />
+          )}
+          {selectedDocumentId && (
+            <DocumentViewerModal
+              documentId={selectedDocumentId}
+              onClose={() => setSelectedDocumentId(null)}
+            />
+          )}
+        </Suspense>
         <Footer />
       </div>
     );
@@ -154,16 +180,22 @@ export default function App() {
 
       <Footer />
 
-      <CvModal
-        isOpen={cvModalOpen}
-        onClose={() => setCvModalOpen(false)}
-        onOpenDocument={(docId) => setSelectedDocumentId(docId)}
-      />
+      <Suspense fallback={null}>
+        {cvModalOpen && (
+          <CvModal
+            isOpen={cvModalOpen}
+            onClose={() => setCvModalOpen(false)}
+            onOpenDocument={(docId) => setSelectedDocumentId(docId)}
+          />
+        )}
 
-      <DocumentViewerModal
-        documentId={selectedDocumentId}
-        onClose={() => setSelectedDocumentId(null)}
-      />
+        {selectedDocumentId && (
+          <DocumentViewerModal
+            documentId={selectedDocumentId}
+            onClose={() => setSelectedDocumentId(null)}
+          />
+        )}
+      </Suspense>
     </div>
   );
 }
