@@ -15,8 +15,6 @@ import {
   CheckCircle,
   Building,
   ArrowDown,
-  Camera,
-  Upload,
   Maximize2,
   X
 } from 'lucide-react';
@@ -41,26 +39,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
       // Ignore
     }
   }, []);
-
-  const handleProfileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (uploadEvent) => {
-      const result = uploadEvent.target?.result as string;
-      if (result) {
-        setProfileImage(result);
-        setImageError(false);
-        try {
-          localStorage.setItem('aras_user_profile_image', result);
-        } catch {
-          // Ignore
-        }
-      }
-    };
-    reader.readAsDataURL(file);
-  };
   return (
     <section id="about" className="relative overflow-hidden pt-12 pb-16 lg:pt-16 lg:pb-20 border-b border-neutral-800 bg-[#0a0a0a]">
       {/* Subtle Background Glow */}
@@ -243,18 +221,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
                     <h3 className="font-medium text-white text-base truncate">Alireza Jahani</h3>
-                    <label
-                      className="cursor-pointer text-neutral-500 hover:text-indigo-400 transition-colors p-1"
-                      title="Upload / Replace Personal Photo"
-                    >
-                      <Upload className="w-3.5 h-3.5" />
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        onChange={handleProfileUpload}
-                      />
-                    </label>
                   </div>
                   <p className="text-xs text-neutral-400 truncate">K. N. Toosi Univ. of Technology</p>
                   <div className="inline-flex items-center gap-1 text-[11px] text-neutral-300 font-medium mt-0.5">
@@ -323,17 +289,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
               <p className="text-neutral-300">
                 Applied Scientist & Machine Learning Researcher at the ARAS AI Lab, supervised by Prof. Hamid D. Taghirad.
               </p>
-              <div className="mt-3 pt-2 border-t border-neutral-800/80 flex items-center justify-between">
-                <label className="cursor-pointer inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300">
-                  <Upload className="w-3.5 h-3.5" />
-                  <span>Replace Photo</span>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={handleProfileUpload}
-                  />
-                </label>
+              <div className="mt-3 pt-2 border-t border-neutral-800/80 flex items-center justify-between text-xs text-neutral-400">
+                <span className="font-mono text-[11px] text-neutral-500">M.Sc. Researcher &bull; Fall 2026/2027 Applicant</span>
                 <button
                   onClick={() => setLightboxOpen(false)}
                   className="px-3 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-white text-xs transition-colors"

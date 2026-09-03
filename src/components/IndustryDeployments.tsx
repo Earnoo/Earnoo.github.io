@@ -11,7 +11,9 @@ import {
   Activity,
   Layers,
   ArrowRight,
-  ShieldAlert
+  ShieldAlert,
+  ShoppingBag,
+  Wind
 } from 'lucide-react';
 
 export const IndustryDeployments: React.FC = () => {
@@ -27,7 +29,34 @@ export const IndustryDeployments: React.FC = () => {
     }))
   );
 
-  const domains = ['all', 'Retail & E-Commerce', 'Intelligent Transportation', 'Quantitative Finance', 'Environmental Systems', 'Industrial & Electrical Systems'];
+  const domains = [
+    'all',
+    'Retail & E-Commerce',
+    'Intelligent Transportation',
+    'Quantitative Finance',
+    'Environmental Systems',
+    'Industrial & Electrical Systems',
+    'Public Health'
+  ];
+
+  const getDomainIcon = (domain: string) => {
+    switch (domain) {
+      case 'Retail & E-Commerce':
+        return <ShoppingBag className="w-3 h-3 text-indigo-400" />;
+      case 'Intelligent Transportation':
+        return <Truck className="w-3 h-3 text-indigo-400" />;
+      case 'Quantitative Finance':
+        return <TrendingUp className="w-3 h-3 text-indigo-400" />;
+      case 'Environmental Systems':
+        return <Wind className="w-3 h-3 text-indigo-400" />;
+      case 'Industrial & Electrical Systems':
+        return <Cpu className="w-3 h-3 text-indigo-400" />;
+      case 'Public Health':
+        return <Activity className="w-3 h-3 text-indigo-400" />;
+      default:
+        return <Layers className="w-3 h-3 text-indigo-400" />;
+    }
+  };
 
   const filteredApps = selectedDomain === 'all'
     ? allIndustryApps
@@ -202,8 +231,9 @@ export const IndustryDeployments: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
                     
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-neutral-950/90 backdrop-blur-md text-[10px] font-mono text-indigo-400 border border-neutral-800">
-                      {app.domain}
+                    <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-950/90 backdrop-blur-md text-[11px] font-mono text-indigo-300 border border-neutral-800 shadow">
+                      {getDomainIcon(app.domain)}
+                      <span>{app.domain}</span>
                     </span>
 
                     <span className="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-neutral-900/90 text-[10px] font-mono text-neutral-400">
