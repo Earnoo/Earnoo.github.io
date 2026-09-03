@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PROFILE_INFO } from '../data/profileData';
 import {
   GraduationCap,
@@ -14,7 +14,11 @@ import {
   Phone,
   CheckCircle,
   Building,
-  ArrowDown
+  ArrowDown,
+  Camera,
+  Upload,
+  Maximize2,
+  X
 } from 'lucide-react';
 
 interface HeroProps {
@@ -23,6 +27,40 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) => {
+  const [profileImage, setProfileImage] = useState<string>('/images/personal-picture.jpg');
+  const [imageError, setImageError] = useState<boolean>(false);
+  const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('aras_user_profile_image');
+      if (saved) {
+        setProfileImage(saved);
+      }
+    } catch {
+      // Ignore
+    }
+  }, []);
+
+  const handleProfileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (uploadEvent) => {
+      const result = uploadEvent.target?.result as string;
+      if (result) {
+        setProfileImage(result);
+        setImageError(false);
+        try {
+          localStorage.setItem('aras_user_profile_image', result);
+        } catch {
+          // Ignore
+        }
+      }
+    };
+    reader.readAsDataURL(file);
+  };
   return (
     <section id="about" className="relative overflow-hidden pt-12 pb-16 lg:pt-16 lg:pb-20 border-b border-neutral-800 bg-[#0a0a0a]">
       {/* Subtle Background Glow */}
@@ -166,15 +204,62 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
 
               {/* Profile Card Summary */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-lg bg-neutral-800 border border-neutral-700 flex items-center justify-center text-white font-medium text-xl tracking-tight shrink-0">
-                  AJ
+                {/* Personal Picture Frame */}
+                <div className="relative group/avatar">
+                  <div
+                    onClick={() => setLightboxOpen(true)}
+                    className="w-16 h-16 rounded-xl bg-neutral-800 border-2 border-indigo-500/40 hover:border-indigo-400 overflow-hidden cursor-pointer shadow-md transition-all group-hover/avatar:scale-105 relative shrink-0 flex items-center justify-center"
+                    title="Click to view full photo"
+                  >
+                    {!imageError ? (
+                      <img
+                        src={profileImage}
+                        alt="Alireza Jahani"
+                        referrerPolicy="no-referrer"
+                        onError={() => setImageError(true)}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-white font-medium text-xl bg-gradient-to-br from-indigo-900/60 to-neutral-900">
+                        AJ
+                      </div>
+                    )}
+                    
+                    {/* Hover overlay hint */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/avatar:opacity-100 transition-opacity flex items-center justify-center text-white">
+                      <Maximize2 className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  {/* Active Status Badge */}
+                  <span
+                    className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-neutral-900 flex items-center justify-center"
+                    title="PhD Applicant - Fall 2026/2027"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping opacity-75" />
+                  </span>
                 </div>
-                <div>
-                  <h3 className="font-medium text-white text-base">Alireza Jahani</h3>
-                  <p className="text-xs text-neutral-400">K. N. Toosi Univ. of Technology</p>
+
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-medium text-white text-base truncate">Alireza Jahani</h3>
+                    <label
+                      className="cursor-pointer text-neutral-500 hover:text-indigo-400 transition-colors p-1"
+                      title="Upload / Replace Personal Photo"
+                    >
+                      <Upload className="w-3.5 h-3.5" />
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleProfileUpload}
+                      />
+                    </label>
+                  </div>
+                  <p className="text-xs text-neutral-400 truncate">K. N. Toosi Univ. of Technology</p>
                   <div className="inline-flex items-center gap-1 text-[11px] text-neutral-300 font-medium mt-0.5">
-                    <CheckCircle className="w-3 h-3 text-emerald-400" />
-                    <span>Thesis: Retail TS with ML</span>
+                    <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" />
+                    <span className="truncate">Thesis: Retail TS with ML</span>
                   </div>
                 </div>
               </div>
@@ -206,6 +291,60 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
 
         </div>
       </div>
+
+      {/* Personal Photo Lightbox */}
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative max-w-md w-full bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+            <div className="px-4 py-3 border-b border-neutral-800 flex items-center justify-between bg-neutral-950/80">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="text-sm font-semibold text-white">Alireza Jahani</span>
+                <span className="text-xs text-neutral-400 font-mono">&bull; ARAS AI Lab</span>
+              </div>
+              <button
+                onClick={() => setLightboxOpen(false)}
+                className="p-1 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-white transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="relative aspect-square bg-neutral-950 flex items-center justify-center overflow-hidden">
+              <img
+                src={profileImage}
+                alt="Alireza Jahani"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="p-4 bg-neutral-950 border-t border-neutral-800 text-xs">
+              <p className="text-neutral-300">
+                Applied Scientist & Machine Learning Researcher at the ARAS AI Lab, supervised by Prof. Hamid D. Taghirad.
+              </p>
+              <div className="mt-3 pt-2 border-t border-neutral-800/80 flex items-center justify-between">
+                <label className="cursor-pointer inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300">
+                  <Upload className="w-3.5 h-3.5" />
+                  <span>Replace Photo</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleProfileUpload}
+                  />
+                </label>
+                <button
+                  onClick={() => setLightboxOpen(false)}
+                  className="px-3 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-white text-xs transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

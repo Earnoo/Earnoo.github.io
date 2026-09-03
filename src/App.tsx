@@ -7,6 +7,7 @@ import { ResearchVision } from './components/ResearchVision';
 import { PublicationsList } from './components/PublicationsList';
 import { IndustryDeployments } from './components/IndustryDeployments';
 import { AcademicTrajectory } from './components/AcademicTrajectory';
+import { ArasCommunitySection } from './components/ArasCommunitySection';
 import { ReferencesSection } from './components/ReferencesSection';
 import { Footer } from './components/Footer';
 
@@ -172,6 +173,8 @@ export default function App() {
         <AcademicTrajectory
           onOpenDocument={(docId) => setSelectedDocumentId(docId)}
         />
+
+        <ArasCommunitySection />
 
         <ReferencesSection
           onOpenDocument={(docId) => setSelectedDocumentId(docId)}

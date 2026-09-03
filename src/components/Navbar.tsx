@@ -25,6 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
     { label: 'Publications', href: '#publications', badge: 'Q1 IF 9.4' },
     { label: 'Industry Impact', href: '#industry-deployments' },
     { label: 'Trajectory & TA', href: '#trajectory' },
+    { label: 'Lab Life', href: '#community' },
     { label: 'References', href: '#references' },
   ];
 

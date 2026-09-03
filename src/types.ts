@@ -116,3 +116,18 @@ export interface ProductionProject {
   metrics: string;
   badge?: string;
 }
+
+export interface CommunityEventPhoto {
+  id: string;
+  title: string;
+  category: 'Academic Presentation' | 'Faculty Retreat' | 'Field Expedition' | 'Academic Travel';
+  date: string;
+  location: string;
+  affiliation: string;
+  description: string;
+  imageSrc: string;
+  fallbackKeywords: string;
+  aspectRatio: string;
+  details: string[];
+  keyPeople?: string[];
+}

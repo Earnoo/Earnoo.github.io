@@ -1,0 +1,83 @@
+import { CommunityEventPhoto } from '../types';
+
+export const PERSONAL_PHOTO = {
+  src: '/images/personal-picture.jpg',
+  alt: 'Alireza Jahani - Applied Scientist & PhD Applicant',
+  caption: 'Alireza Jahani, M.Sc. Mechatronics, ARAS AI Lab',
+  secondarySrc: '/images/Personal picture.jpg',
+};
+
+export const ARAS_COMMUNITY_PHOTOS: CommunityEventPhoto[] = [
+  {
+    id: 'aras-presentation',
+    title: 'Research Seminar: Effect of Fuzzy Clustering on Sequential Data',
+    category: 'Academic Presentation',
+    date: 'ARAS AI Lab Seminar Series',
+    location: 'Faculty of Electrical Engineering, K. N. Toosi University of Technology',
+    affiliation: 'ARAS AI Research Group',
+    description: 'Technical presentation explaining the mathematical formulation and experimental variance of fuzzy-based clustering preprocessing for time series and robust representations.',
+    imageSrc: '/images/aras-presentation.png',
+    fallbackKeywords: 'presentation, lecture, fuzzy clustering, time series chart',
+    aspectRatio: '1:1',
+    details: [
+      'Delivered seminar to ARAS graduate students and faculty researchers',
+      'Demonstrated time series preprocessing and noise-reduction clustering algorithms',
+      'Core foundation leading to FTS-GAN (Expert Systems with Applications, 2026)',
+    ],
+    keyPeople: ['Alireza Jahani', 'ARAS AI Lab Researchers & Faculty'],
+  },
+  {
+    id: 'aras-retreat',
+    title: 'ARAS Annual Research Group Retreat & Expedition',
+    category: 'Faculty Retreat',
+    date: 'Annual Lab Expedition',
+    location: 'Alborz Highlands / Forest Park Lodge',
+    affiliation: 'Advanced Robotics and Automated Systems (ARAS)',
+    description: 'Group photo of the ARAS research family led by Prof. Hamid D. Taghirad, bringing together M.Sc. and Ph.D. scholars, postdocs, and alumni in a collaborative outdoor gathering.',
+    imageSrc: '/images/aras-retreat.png',
+    fallbackKeywords: 'group photo, mountain retreat, faculty, students, forest cabin',
+    aspectRatio: '4:3',
+    details: [
+      'Over 25 researchers and graduate fellows celebrating annual milestones',
+      'Fostering interdisciplinary collaboration across mechatronics, AI, and control',
+      'Mentorship discussions with Prof. Hamid D. Taghirad',
+    ],
+    keyPeople: ['Prof. Hamid D. Taghirad', 'Alireza Jahani', 'ARAS Research Team'],
+  },
+  {
+    id: 'aras-beach',
+    title: 'ARAS Coastline Field Gathering & Sand Emblem',
+    category: 'Field Expedition',
+    date: 'Lab Field Retreat',
+    location: 'Caspian Shoreline',
+    affiliation: 'ARAS AI Lab',
+    description: 'ARAS team gathering by the coastline, featuring the carved ARAS emblem in the beach sands symbolizing unity and collaborative spirit among lab colleagues.',
+    imageSrc: '/images/aras-beach.png',
+    fallbackKeywords: 'beach, ocean, team, ARAS sand carving',
+    aspectRatio: '4:3',
+    details: [
+      'Annual team-building expedition with lab colleagues and research peers',
+      'Traditional carved "A R A S" lettering in the shoreline sands',
+      'Strengthening bonds between machine learning, control, and robotics cohorts',
+    ],
+    keyPeople: ['ARAS AI & Robotics Graduate Cohort'],
+  },
+  {
+    id: 'aras-travel',
+    title: 'Academic Travel & Conference Delegation Departure',
+    category: 'Academic Travel',
+    date: 'Conference & Delegation Send-off',
+    location: 'Airport Departure Gate',
+    affiliation: 'ARAS Delegation',
+    description: 'Airport departure gate gathering with boarding passes and travel gear, departing for scientific conferences and international robotics symposia.',
+    imageSrc: '/images/aras-travel.png',
+    fallbackKeywords: 'airport, boarding pass, selfie, colleagues, conference travel',
+    aspectRatio: '4:3',
+    details: [
+      'Celebrating international conference presentations and research travels',
+      'Team camaraderie and academic delegation travel',
+      'Representing ARAS AI Lab at national and international venues',
+    ],
+    keyPeople: ['Alireza Jahani', 'ARAS Traveling Delegates'],
+  },
+];
