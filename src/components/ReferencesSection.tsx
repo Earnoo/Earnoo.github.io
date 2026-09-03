@@ -9,7 +9,11 @@ import {
   FileCheck
 } from 'lucide-react';
 
-export const ReferencesSection: React.FC = () => {
+interface ReferencesSectionProps {
+  onOpenDocument?: (docId: string) => void;
+}
+
+export const ReferencesSection: React.FC<ReferencesSectionProps> = ({ onOpenDocument }) => {
   return (
     <section id="references" className="py-16 sm:py-20 border-b border-neutral-800 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,12 +46,38 @@ export const ReferencesSection: React.FC = () => {
                   <span>Recommendation Letter Available</span>
                 </div>
 
-                <h3 className="text-lg font-medium text-white mb-1 group-hover:text-indigo-400 transition-colors">{ref.name}</h3>
+                <h3 className="text-lg font-medium text-white mb-1">
+                  {ref.profileUrl ? (
+                    <a
+                      href={ref.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-indigo-400 hover:underline inline-flex items-center gap-1 group-hover:text-indigo-400 transition-colors"
+                    >
+                      <span>{ref.name}</span>
+                    </a>
+                  ) : (
+                    ref.name
+                  )}
+                </h3>
                 <div className="text-xs font-medium text-indigo-400 mb-2">{ref.title}</div>
                 
                 <div className="text-xs text-neutral-400 mb-4 leading-relaxed">
                   <div>{ref.department}</div>
-                  <div className="font-medium text-neutral-300">{ref.institution}</div>
+                  <div className="font-medium text-neutral-300">
+                    {ref.institutionUrl ? (
+                      <a
+                        href={ref.institutionUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-indigo-400 hover:underline"
+                      >
+                        {ref.institution}
+                      </a>
+                    ) : (
+                      ref.institution
+                    )}
+                  </div>
                   <div className="text-neutral-500">{ref.country}</div>
                 </div>
 
@@ -55,6 +85,18 @@ export const ReferencesSection: React.FC = () => {
                   <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-0.5">Academic Relation:</div>
                   <div className="text-xs font-medium text-white">{ref.relation}</div>
                 </div>
+
+                {ref.recommendationLetterPdf && onOpenDocument && (
+                  <div className="mb-3">
+                    <button
+                      onClick={() => onOpenDocument('fontys-rec-letter')}
+                      className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 text-xs font-medium border border-indigo-500/30 transition-colors"
+                    >
+                      <FileCheck className="w-3.5 h-3.5" />
+                      <span>View Recommendation Letter PDF</span>
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div className="pt-4 border-t border-neutral-800/80 space-y-2 text-xs">

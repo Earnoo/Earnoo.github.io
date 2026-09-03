@@ -12,7 +12,11 @@ import {
   UserCheck
 } from 'lucide-react';
 
-export const AcademicTrajectory: React.FC = () => {
+interface AcademicTrajectoryProps {
+  onOpenDocument?: (docId: string) => void;
+}
+
+export const AcademicTrajectory: React.FC<AcademicTrajectoryProps> = ({ onOpenDocument }) => {
   const honors = [
     {
       title: 'Exceptionally Talented Student (M.Sc. Program)',
@@ -100,7 +104,18 @@ export const AcademicTrajectory: React.FC = () => {
                     {edu.field}
                   </h4>
                   <div className="text-xs text-neutral-400 mb-3">
-                    {edu.institution}
+                    {edu.institutionUrl ? (
+                      <a
+                        href={edu.institutionUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-neutral-300 hover:text-indigo-400 hover:underline inline-flex items-center gap-1 font-medium"
+                      >
+                        <span>{edu.institution}</span>
+                      </a>
+                    ) : (
+                      edu.institution
+                    )}
                   </div>
 
                   <div className="p-3 bg-neutral-950/80 rounded-lg border border-neutral-800/80 mb-3 text-xs space-y-1">
@@ -126,7 +141,18 @@ export const AcademicTrajectory: React.FC = () => {
                   {edu.supervisor && (
                     <div className="text-xs text-neutral-400 mt-1">
                       <strong className="text-neutral-300 font-medium">Supervisor: </strong>
-                      <span className="text-neutral-300">{edu.supervisor}</span>
+                      {edu.supervisorUrl ? (
+                        <a
+                          href={edu.supervisorUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-indigo-400 hover:underline font-medium"
+                        >
+                          {edu.supervisor}
+                        </a>
+                      ) : (
+                        <span className="text-neutral-300">{edu.supervisor}</span>
+                      )}
                     </div>
                   )}
                 </div>
@@ -165,12 +191,28 @@ export const AcademicTrajectory: React.FC = () => {
                 <span>Invited Academic Oral Talks</span>
               </h4>
               <div className="space-y-2.5">
-                {oralTalks.map((talk, tIdx) => (
-                  <div key={tIdx} className="p-3 rounded-lg bg-neutral-950/70 border border-neutral-800 text-xs">
-                    <div className="font-medium text-indigo-300 mb-0.5">"{talk.title}"</div>
-                    <div className="text-neutral-400">{talk.conference} &bull; <span className="text-emerald-400 font-medium">{talk.type}</span></div>
-                  </div>
-                ))}
+                {oralTalks.map((talk, tIdx) => {
+                  const docId = tIdx === 0 ? 'iccia-2025-cert' : 'icrom-2024-cert';
+                  return (
+                    <div key={tIdx} className="p-3 rounded-lg bg-neutral-950/70 border border-neutral-800 text-xs flex flex-col justify-between gap-2">
+                      <div>
+                        <div className="font-medium text-indigo-300 mb-0.5">"{talk.title}"</div>
+                        <div className="text-neutral-400">{talk.conference} &bull; <span className="text-emerald-400 font-medium">{talk.type}</span></div>
+                      </div>
+                      {onOpenDocument && (
+                        <div className="pt-1">
+                          <button
+                            onClick={() => onOpenDocument(docId)}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700 text-[11px] font-mono transition-colors"
+                          >
+                            <Award className="w-3 h-3 text-amber-400" />
+                            <span>View Presentation Certificate</span>
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -193,7 +235,21 @@ export const AcademicTrajectory: React.FC = () => {
                   <div>
                     <div className="font-medium text-white text-sm mb-1">{t.course}</div>
                     <div className="text-indigo-400 font-medium mb-2">{t.role}</div>
-                    <div className="text-neutral-400">Instructor: {t.instructor}</div>
+                    <div className="text-neutral-400">
+                      Instructor:{' '}
+                      {t.instructorUrl ? (
+                        <a
+                          href={t.instructorUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-neutral-300 hover:text-indigo-400 hover:underline"
+                        >
+                          {t.instructor}
+                        </a>
+                      ) : (
+                        <span className="text-neutral-300">{t.instructor}</span>
+                      )}
+                    </div>
                   </div>
                   <div className="mt-3 pt-2 border-t border-neutral-800/80 text-[11px] font-mono text-neutral-500">
                     {t.term}

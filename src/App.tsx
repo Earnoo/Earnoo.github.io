@@ -10,11 +10,13 @@ import { AcademicTrajectory } from './components/AcademicTrajectory';
 import { ReferencesSection } from './components/ReferencesSection';
 import { PaperDedicatedSite } from './components/PaperDedicatedSite';
 import { CvModal } from './components/CvModal';
+import { DocumentViewerModal } from './components/DocumentViewerModal';
 import { Footer } from './components/Footer';
 
 export default function App() {
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
   const [cvModalOpen, setCvModalOpen] = useState<boolean>(false);
+  const [selectedDocumentId, setSelectedDocumentId] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>('about');
 
   // Handle URL hash changes for deep linking (e.g. #paper/fts-gan or #paper/ep-rnn)
@@ -68,7 +70,15 @@ export default function App() {
           onBack={handleBackToPortfolio}
           isStandaloneWindow={false}
         />
-        <CvModal isOpen={cvModalOpen} onClose={() => setCvModalOpen(false)} />
+        <CvModal
+          isOpen={cvModalOpen}
+          onClose={() => setCvModalOpen(false)}
+          onOpenDocument={(docId) => setSelectedDocumentId(docId)}
+        />
+        <DocumentViewerModal
+          documentId={selectedDocumentId}
+          onClose={() => setSelectedDocumentId(null)}
+        />
         <Footer />
       </div>
     );
@@ -90,13 +100,20 @@ export default function App() {
 
         <ResearchVision />
 
-        <PublicationsList onSelectPaper={handleSelectPaper} />
+        <PublicationsList
+          onSelectPaper={handleSelectPaper}
+          onOpenDocument={(docId) => setSelectedDocumentId(docId)}
+        />
 
         <IndustryDeployments />
 
-        <AcademicTrajectory />
+        <AcademicTrajectory
+          onOpenDocument={(docId) => setSelectedDocumentId(docId)}
+        />
 
-        <ReferencesSection />
+        <ReferencesSection
+          onOpenDocument={(docId) => setSelectedDocumentId(docId)}
+        />
       </main>
 
       <Footer />
@@ -104,6 +121,12 @@ export default function App() {
       <CvModal
         isOpen={cvModalOpen}
         onClose={() => setCvModalOpen(false)}
+        onOpenDocument={(docId) => setSelectedDocumentId(docId)}
+      />
+
+      <DocumentViewerModal
+        documentId={selectedDocumentId}
+        onClose={() => setSelectedDocumentId(null)}
       />
     </div>
   );

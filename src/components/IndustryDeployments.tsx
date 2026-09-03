@@ -100,6 +100,48 @@ export const IndustryDeployments: React.FC = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Live Application & Company Partner Links */}
+                  {(proj.liveUrl || (proj.companyLinks && proj.companyLinks.length > 0)) && (
+                    <div className="mb-4 pt-3 border-t border-neutral-800/80 space-y-2">
+                      {proj.liveUrl && (
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] text-neutral-400 font-mono">Live Application:</span>
+                          <a
+                            href={proj.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-xs font-mono font-medium border border-emerald-500/30 transition-colors"
+                          >
+                            <span>pakhsh.fanoos-ai.ir</span>
+                            <ArrowRight className="w-3 h-3" />
+                          </a>
+                        </div>
+                      )}
+
+                      {proj.companyLinks && proj.companyLinks.length > 0 && (
+                        <div>
+                          <span className="text-[10px] text-neutral-500 font-mono uppercase tracking-wider block mb-1">
+                            Enterprise Deployments:
+                          </span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {proj.companyLinks.map((company, cIdx) => (
+                              <a
+                                key={cIdx}
+                                href={company.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-[11px] border border-neutral-700 hover:border-indigo-500/50 transition-colors"
+                              >
+                                <span>{company.name}</span>
+                                <ArrowRight className="w-2.5 h-2.5 text-neutral-400" />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-3 border-t border-neutral-800 flex flex-wrap gap-1.5">

@@ -18,9 +18,10 @@ import {
 
 interface PublicationsListProps {
   onSelectPaper: (paper: Paper) => void;
+  onOpenDocument?: (docId: string) => void;
 }
 
-export const PublicationsList: React.FC<PublicationsListProps> = ({ onSelectPaper }) => {
+export const PublicationsList: React.FC<PublicationsListProps> = ({ onSelectPaper, onOpenDocument }) => {
   const [filter, setFilter] = useState<'all' | 'journal' | 'conference' | 'firstAuthor'>('all');
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -99,6 +100,12 @@ export const PublicationsList: React.FC<PublicationsListProps> = ({ onSelectPape
                 {/* Top Row: Venue & Badges */}
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                   <div className="flex flex-wrap items-center gap-2">
+                    {paper.paperNumber && (
+                      <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+                        [{paper.paperNumber}]
+                      </span>
+                    )}
+
                     <span
                       className={`px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider ${
                         paper.venueType.includes('Journal')
@@ -123,6 +130,20 @@ export const PublicationsList: React.FC<PublicationsListProps> = ({ onSelectPape
                       <span className="text-[10px] font-mono text-amber-400 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
                         Lead Author
                       </span>
+                    )}
+
+                    {paper.hasCertificate && onOpenDocument && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          const docId = paper.slug === 'facts' ? 'iccia-2025-cert' : 'icrom-2024-cert';
+                          onOpenDocument(docId);
+                        }}
+                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 hover:bg-amber-500/20 text-[10px] font-mono transition-colors"
+                      >
+                        <Sparkles className="w-2.5 h-2.5" />
+                        <span>Verified Presentation Certificate</span>
+                      </button>
                     )}
                   </div>
 

@@ -51,16 +51,26 @@ export interface Paper {
   industryApplications: IndustryApplication[];
   bibtex: string;
   keywords: string[];
+  paperNumber?: number;
+  hasCertificate?: boolean;
+  presentationCertificate?: {
+    conference: string;
+    date: string;
+    location: string;
+    oralPresentation: boolean;
+  };
 }
 
 export interface Education {
   degree: string;
   field: string;
   institution: string;
+  institutionUrl?: string;
   period: string;
   gpa: string;
   rank?: string;
   supervisor?: string;
+  supervisorUrl?: string;
   thesis?: string;
 }
 
@@ -69,11 +79,15 @@ export interface ReferenceContact {
   title: string;
   department: string;
   institution: string;
+  institutionUrl?: string;
   country: string;
   relation: string;
   email: string;
   phone: string;
+  profileUrl?: string;
   hasRecLetter?: boolean;
+  recLetterSummary?: string;
+  recommendationLetterPdf?: string;
 }
 
 export interface TeachingExperience {
@@ -81,7 +95,9 @@ export interface TeachingExperience {
   course: string;
   term: string;
   instructor: string;
+  instructorUrl?: string;
   institution: string;
+  institutionUrl?: string;
 }
 
 export interface ProductionProject {
@@ -90,6 +106,9 @@ export interface ProductionProject {
   subtitle: string;
   period: string;
   organization: string;
+  organizationUrl?: string;
+  liveUrl?: string;
+  companyLinks?: { name: string; url: string }[];
   description: string;
   bullets: string[];
   techStack: string[];

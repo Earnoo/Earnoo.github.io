@@ -54,11 +54,37 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal, onExplorePapers }) =>
                 Applied Scientist &bull; Machine Learning &bull; Temporal AI &bull; Robotics
               </p>
               <div className="text-xs text-neutral-400 flex flex-wrap items-center gap-2 mt-2">
-                <span>Supervised by <strong className="text-neutral-200">Prof. Hamid D. Taghirad</strong></span>
+                <span>
+                  Supervised by{' '}
+                  <a
+                    href="http://aras.kntu.ac.ir/taghirad/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-400 font-medium hover:underline"
+                  >
+                    Prof. Hamid D. Taghirad
+                  </a>
+                </span>
                 <span className="text-neutral-600">&bull;</span>
                 <span className="flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5 text-neutral-500" />
-                  K. N. Toosi University of Technology, ARAS AI Lab
+                  <a
+                    href="https://en.kntu.ac.ir/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-neutral-200 hover:underline"
+                  >
+                    K. N. Toosi University of Technology
+                  </a>
+                  ,{' '}
+                  <a
+                    href="https://aras.kntu.ac.ir/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-neutral-200 hover:underline"
+                  >
+                    ARAS AI Lab
+                  </a>
                 </span>
               </div>
             </div>
