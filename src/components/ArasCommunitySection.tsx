@@ -12,7 +12,6 @@ import {
   Compass,
   Plane,
   Camera,
-  Upload,
   ChevronRight,
   Info
 } from 'lucide-react';
@@ -26,7 +25,7 @@ export const ArasCommunitySection: React.FC<ArasCommunitySectionProps> = () => {
   const [activeModalPhoto, setActiveModalPhoto] = useState<CommunityEventPhoto | null>(null);
   const [userCustomImages, setUserCustomImages] = useState<Record<string, string>>({});
 
-  // Load any locally cached image uploads if available
+  // Load any locally cached image overrides if available
   useEffect(() => {
     try {
       const saved = localStorage.getItem('aras_custom_community_images');
@@ -37,28 +36,6 @@ export const ArasCommunitySection: React.FC<ArasCommunitySectionProps> = () => {
       // Ignore local storage error in restricted iframes
     }
   }, []);
-
-  const handleFileUpload = (photoId: string, event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      if (result) {
-        setUserCustomImages((prev) => {
-          const updated = { ...prev, [photoId]: result };
-          try {
-            localStorage.setItem('aras_custom_community_images', JSON.stringify(updated));
-          } catch {
-            // Storage quota fallback
-          }
-          return updated;
-        });
-      }
-    };
-    reader.readAsDataURL(file);
-  };
 
   const categories = ['All', 'Academic Presentation', 'Faculty Retreat', 'Field Expedition', 'Academic Travel'];
 
@@ -231,32 +208,18 @@ export const ArasCommunitySection: React.FC<ArasCommunitySectionProps> = () => {
 
                   {/* Bottom Action Footer */}
                   <div className="pt-3 border-t border-neutral-800 flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-[11px] text-neutral-400 font-mono">
-                      <Users className="w-3 h-3 text-neutral-500" />
+                    <div className="flex items-center gap-1.5 text-[11px] text-neutral-400 font-mono">
+                      <Users className="w-3.5 h-3.5 text-indigo-400" />
                       <span>{photo.affiliation}</span>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                      {/* Photo Upload / Change Option */}
-                      <label className="cursor-pointer inline-flex items-center gap-1 px-2 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white text-[11px] font-medium transition-colors border border-neutral-700/60">
-                        <Upload className="w-3 h-3 text-indigo-400" />
-                        <span>Update Photo</span>
-                        <input
-                          type="file"
-                          accept="image/*"
-                          className="hidden"
-                          onChange={(e) => handleFileUpload(photo.id, e)}
-                        />
-                      </label>
-
-                      <button
-                        onClick={() => setActiveModalPhoto(photo)}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 text-[11px] font-medium border border-indigo-500/30 transition-colors"
-                      >
-                        <span>Details</span>
-                        <ChevronRight className="w-3 h-3" />
-                      </button>
-                    </div>
+                    <button
+                      onClick={() => setActiveModalPhoto(photo)}
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 text-[11px] font-medium border border-indigo-500/30 transition-colors"
+                    >
+                      <span>View Highlights</span>
+                      <ChevronRight className="w-3 h-3" />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -373,18 +336,7 @@ export const ArasCommunitySection: React.FC<ArasCommunitySectionProps> = () => {
                   </div>
 
                   <div className="mt-3 pt-2 border-t border-neutral-800 flex items-center justify-between">
-                    <label className="cursor-pointer inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300">
-                      <Upload className="w-3.5 h-3.5" />
-                      <span>Upload High-Res Photo</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        onChange={(e) => {
-                          handleFileUpload(activeModalPhoto.id, e);
-                        }}
-                      />
-                    </label>
+                    <span className="text-[11px] font-mono text-neutral-500">ARAS AI Lab Archive</span>
 
                     <button
                       onClick={() => setActiveModalPhoto(null)}
